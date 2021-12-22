@@ -1,0 +1,138 @@
+body{
+    background-color: #161540;
+}
+nav{
+   display: flex;
+   justify-content: space-between;
+   /* border: 1px solid black; */
+   color: white;
+   /* background-color: #171544; */
+   font-weight: 600;
+}
+
+.n1{
+ /* border: 1px solid red; */
+ display: flex;
+ width:250px;
+ justify-content:space-between;
+}
+.n1>button{
+display: flex;
+width:130px;
+text-align: center;
+height: 35px;
+justify-content: space-around;
+padding: 7px 14px 10px 9px; 
+text-transform: none;
+user-select: none;
+touch-action: manipulation;
+border-radius: 3px;
+font-size: 15px;
+font-weight: 700;
+position: relative;
+/* width: auto; */
+background-color: #1bb76e;
+box-shadow: 0 6px 10px 0 rgb(27 28 30 / 31%);
+color: #fff;
+white-space: nowrap;
+}
+
+
+.logo{
+    width: 80px;
+    height: 30px;
+}
+
+.n2{
+    display: flex;
+    /* margin-right: 400px; */
+    width:450px
+}
+
+
+.n2>input{
+    padding: 10px;
+    font-size: 17px;
+    /* border: 1px solid grey; */
+    float: left;
+    width: 100%;
+  
+    background-color: transparent;
+}
+
+.n2>button{
+    float: left;
+    width: 20%;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    /* border: 1px solid grey; */
+    border-left: none;
+    cursor: pointer;
+}
+.n3{
+    display: flex;
+    justify-content: space-around;
+    /* border:1px solid red; */
+    width:500px
+}
+.n3>button{
+    width:130px;
+    border-radius: 5px;
+    padding:5px;
+    color: white;
+}
+.heading{
+  margin:40px auto;
+}
+
+.heading>p{
+  font-weight: 700;
+  font-size: 24px;
+  /* border: 1px solid red; */
+  text-align: center;
+  color: white;
+  
+}
+
+.father{
+    /* border: 1px solid red; */
+    width:90%;
+    margin:auto
+}
+
+.subtitle{
+    display: flex;
+    justify-content: space-between;
+    color:white;
+    font-size: 18px;
+    font-weight: 500;
+    
+}
+.category{
+    display: flex;
+    justify-content: space-between;
+    /* border:1px solid yellow; */
+    margin-top: 20px;
+}
+
+.category>div{
+    height:120px;
+    width:100px;
+    /* border:1px solid red; */
+}
+
+.pic>img{
+    height:52%;
+    width: 100%;
+    margin-bottom: -7px;
+    /* border: 1px solid orange */
+} 
+
+.info{
+    background-color: #328D67;
+     /* border: 1px solid yellow; */
+    width:100%;
+    margin-top: 2px;
+}
