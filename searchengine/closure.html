@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    input {
+        width: 200px;
+        margin-left: 500px;
+        border-radius: 5px;
+
+    }
+
+    #movies {
+        height: 200px;
+        width: 209px;
+        border: 1px solid black;
+        border-top: none;
+        overflow: scroll;
+        margin-left: 500px;
+        margin-top: 20px;
+    }
+</style>
+
+<body>
+    <h1>Debouncing Closure </h1>
+
+    <input type="text" oninput="debouncing(main,500)" id="query">
+
+    <div id="movies"></div>
+
+</body>
+
+</html>
+
+<script>
+    var timerId;      // Make the timer id global  this id is used in the debounce function
+
+    let movie_div = document.getElementById("movies")
+
+    async function searchMovie(n) {
+
+        let res = await fetch(`http://www.omdbapi.com/?s=${n}&apikey=237f49ad`)
+        let data = await res.json()
+        //  console.log(data);
+        return data.Search
+
+    }
+
+
+    function appendMovies(m) {
+        movie_div.innerHTML = null
+        m.forEach(({ Title }) => {
+            let p = document.createElement("p")
+            p.innerText = Title
+            movie_div.append(p)
+        })
+    }
+
+    async function main() {
+        let name = document.getElementById("query").value;
+
+        if (name.length < 3) {
+            return false
+        }
+
+        let movie = await searchMovie(name)
+        if (movie === undefined) {
+            return false      //This consdition is optional when the api fail to fetch 
+            // the data then we use this condition
+        }
+        console.log(movie);
+        appendMovies(movie)
+    }
+
+
+
+    function debouncing(func, delay) {
+        let name = document.getElementById("query").value;
+
+        if (name.length < 3) {
+            return false
+        }
+
+
+        // I wrote  the code from the line 86 to 90 jut to  restrict the call of set time out function till
+        // the length of the search  is less than 3
+
+        if (timerId) {
+            clearTimeout(timerId)  // This code is to delete the timer id created we start 
+            // typing the letter written before
+        }
+
+         
+        // Before it generate the timer id it first check is there any previous generated id , if so 
+        // it will clear it
+
+
+        timerId = setTimeout(() => {
+            func();
+        }, delay)
+
+    }
+
+</script>
