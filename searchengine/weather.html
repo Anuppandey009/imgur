@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="city" placeholder="Enter the city name....">
+    <button onclick="getWeather()">Submit</button>
+</body>
+
+</html>
+<script>
+
+
+
+    /*
+      fetch("https://fakestoreapi.com/products")
+    .then(function (response) {
+        console.log(response);
+        return response.json()
+    }).then(function(jsonData){
+       console.log(jsonData)
+    })
+    .catch(function (err){
+           console.log(err);
+    })
+
+    */
+
+
+
+    async function getWeather() {
+        try {
+            let city = document.getElementById("city").value
+
+            let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=fce439bb916a50fc7ec9b4f2d64d25a4`);
+
+            // use back tick (``) instead of ("")
+
+            let data = await response.json()
+            console.log(data);
+
+        }
+        catch (err) {
+            console.log("error", err);
+        }
+
+    }
+
+
+
+
+
+</script>
