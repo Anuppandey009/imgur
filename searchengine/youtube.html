@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Youtube</h1>
+   <input type="text" id="video" placeholder="Serach....">
+   <button onclick="searchVideoes()">Search</button>
+
+   <div id="videoid"></div>
+    
+</body>
+</html>
+<script>
+
+
+//  AIzaSyB0NL2B5sfQzZjijIHGboLYEl96myd9aOQ 
+
+let div=document.getElementById("videoid")
+
+async function searchVideoes(){
+let video=document.getElementById("video").value
+
+
+  let res= await fetch(`https://youtube.googleapis.com/youtube/v3/search?q=${video}&type=video&key=AIzaSyAk5EyhPoK5LKAIMb-r9jnml0UxWdVnP60&maxResults=20`)
+
+  let data=await res.json()
+ 
+  for({
+      id:{ videoId },
+} of data.items){
+      console.log(videoId);
+
+let video_frame=document.createElement("iframe")
+  
+video_frame.src=`https://www.youtube.com/embed/${videoId}`
+video_frame.allow=`fullscreen`
+
+div.appendChild(video_frame)
+
+  }
+
+}
+
+</script>
